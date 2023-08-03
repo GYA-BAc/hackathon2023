@@ -1,0 +1,25 @@
+.header-section {
+    position: relative;
+}
+
+.header-menu {
+    left: 0;
+    top: 0px;
+
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+li {
+    list-style-type: none;
+    margin: 10px;
+}
+
+#header-text {
+    font-size: 15vw;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 600;
+
+    transform: translate(0, 500px)
+}

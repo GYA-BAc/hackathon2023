@@ -1,24 +1,65 @@
-import logo from './logo.svg';
+import Navbar from "./components/Navbar"
+import Footer from "./components/Footer"
+import Header from "./components/Header"
+import Featured from "./components/Featured"
+import About from "./components/About"
+import Gallery from "./components/Gallery"
+
+
 import './App.css';
+import { useEffect, useRef, useState } from "react"
+import useLocomotiveScroll from "./hooks/useLocomotiveScroll"
 
 function App() {
+
+  const [preloader, setPreloader] = useState(true)
+
+  useLocomotiveScroll(!preloader)
+
+  const [timer, setTimer] = useState(2)
+
+  const id = useRef(null)
+
+  const clear = () => {
+    window.clearInterval(id.current)
+    setPreloader(false)
+  }
+
+
+  useEffect(() => {
+    id.current = window.setInterval(()=>{
+      setTimer((timer)=>timer-1)
+    }, 1000)
+  }, [])
+
+  useEffect(() => {
+    if (timer === 0) {
+      clear();
+    }
+  }, [timer])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    
+      {preloader ? 
+        <div className="loader-wrapper absolute">
+          <h1>Title</h1>
+          <h2>subtitle</h2>
+        </div> 
+
+          :
+
+        <div className="App" id="main-container" data-scroll-container>
+          <Navbar/>
+          <Header/>
+          <Featured/>
+          <About />
+          <Gallery />
+          <Footer />
+        </div>
+      }
+    </>
+
   );
 }
 

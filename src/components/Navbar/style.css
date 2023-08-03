@@ -1,0 +1,9 @@
+.navbar-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 5% 0;
+    font-size: 24px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
