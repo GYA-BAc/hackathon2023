@@ -40,7 +40,7 @@ const images = [
 
 function GalleryItem({src, subtitle1, subtitle2, title, updateActiveImage, index}) {
     return (
-        <div className="gallery-item-wrapper" data-scroll-section>
+        <div className="gallery-item-wrapper">
 
             <div/>
 
@@ -64,12 +64,12 @@ function GalleryItem({src, subtitle1, subtitle2, title, updateActiveImage, index
 }
 
 
-export default function About() {
+export default function Gallery() {
 
     const [activeImage, setActiveImage] = useState(1)
 
     return (
-        <section className={"gallery-section"}>
+        <section className={"gallery-section"} data-scroll-section>
             <div className="gallery">
 
                 <div className="gallery-counter">
@@ -80,7 +80,7 @@ export default function About() {
 
                 {images.map((image, index) => 
                     <GalleryItem
-                        key={image.src}
+                        key={image.src+index}
                         index={index}
                         {...image}
                         updateActiveImage={(index)=>setActiveImage(index+1)}

@@ -16,7 +16,7 @@ function App() {
 
   useLocomotiveScroll(!preloader)
 
-  const [timer, setTimer] = useState(2)
+  const [timer, setTimer] = useState(1)
 
   const id = useRef(null)
 
@@ -33,7 +33,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    if (timer === 0) {
+    if (timer <= 0) {
       clear();
     }
   }, [timer])
@@ -50,12 +50,13 @@ function App() {
           :
 
         <div className="App" id="main-container" data-scroll-container>
+          <div/>
           <Navbar/>
           <Header/>
           <Featured/>
-          <About />
-          <Gallery />
-          <Footer />
+          <About/>
+          <Gallery/>
+          <Footer/>
         </div>
       }
     </>

@@ -2,7 +2,9 @@
     background-color: #d53f41;
     margin-left: -5vw;
     margin-right: -5vw;
-    position: relative
+    width: auto;
+    height: auto;
+    position: relative;
 }
 
 .gallery-counter {
@@ -28,6 +30,7 @@
 }
 
 .gallery {
+
     height: 80vh;
     width: 400%;
     padding: 10vh 0;

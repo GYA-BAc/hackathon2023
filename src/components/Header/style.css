@@ -17,9 +17,11 @@ li {
 
 #header-text {
     font-size: 15vw;
+    margin-top: -20%;
+    margin-bottom: 30%;
     text-transform: uppercase;
     text-align: center;
     font-weight: 600;
 
-    transform: translate(0, 500px)
+    transform: translate(0, 600px)
 }

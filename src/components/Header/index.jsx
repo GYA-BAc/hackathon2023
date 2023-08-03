@@ -3,7 +3,7 @@ import gsap from "gsap"
 
 import "./style.css"
 
-export default function About() {
+export default function Header() {
 
     {gsap.to("#header-text", {
         duration: 1,
@@ -11,7 +11,7 @@ export default function About() {
         opacity: 1,
         stagger: 0.1,
         ease: "power2",
-        })}
+    })}
 
     return <section className={"header-section"} data-scroll-section>
         <ul className="header-menu">

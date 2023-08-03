@@ -2,7 +2,7 @@ import React from "react"
 
 import "./style.css"
 
-export default function About() {
+export default function Featured() {
     return <section className={"featured-section"} data-scroll-section>
         <div class="container">
 

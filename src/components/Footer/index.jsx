@@ -3,7 +3,7 @@ import React from "react"
 import "./style.css"
 import SectionHeader from "../SectionHeader"
 
-export default function About() {
+export default function Footer() {
     return <section className={"footer-section"} data-scroll-section>
         <SectionHeader title="Lorem Ipsum Dolor"/>
         <h1 className="footer-content" id="footer-text">
