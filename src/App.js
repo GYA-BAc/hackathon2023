@@ -9,6 +9,10 @@ import Gallery from "./components/Gallery"
 import './App.css';
 import { useEffect, useRef, useState } from "react"
 import useLocomotiveScroll from "./hooks/useLocomotiveScroll"
+ 
+import CSSPlugin from 'gsap/CSSPlugin';
+const C = CSSPlugin // wierd bs to make it work
+
 
 function App() {
 

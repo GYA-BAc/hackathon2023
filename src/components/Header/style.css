@@ -12,13 +12,14 @@
 
 li {
     list-style-type: none;
-    margin: 10px;
+    margin: 40px;
 }
 
 #header-text {
     font-size: 15vw;
     margin-top: -20%;
     margin-bottom: 30%;
+    margin-left: 25%;
     text-transform: uppercase;
     text-align: center;
     font-weight: 600;

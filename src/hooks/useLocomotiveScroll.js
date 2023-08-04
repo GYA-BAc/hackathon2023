@@ -15,48 +15,9 @@ export default function useLocomotiveScroll(start) {
 
         let locomotiveScroll = new LocomotiveScroll({
             el: scrollElement,
-            smooth: true,
-            multiplier: 1,
+            multiplier: 0,
             class: 'is-reveal'
         })
 
-        locomotiveScroll.on('scroll', () => {
-            ScrollTrigger.update()
-        })
-
-        ScrollTrigger.scrollerProxy("#main-container", {
-            scrollTop(value) {
-                if (locomotiveScroll) {
-                    return (arguments.length ?
-                    locomotiveScroll.scrollTo(value, 0, 0) :
-                    locomotiveScroll.scroll.instance.scroll.y)
-                }
-                return null
-            },
-            scrollLeft(value) {
-                if (locomotiveScroll) {
-                    return (arguments.length ?
-                    locomotiveScroll.scrollTo(value, 0, 0) :
-                    locomotiveScroll.scroll.instance.scroll.x)
-                }
-                return null
-            },
-        })
-        const lsUpdate = () => {
-            if (locomotiveScroll) {
-                locomotiveScroll.update()
-            }
-        }
-
-        ScrollTrigger.addEventListener('refresh', lsUpdate)
-        ScrollTrigger.refresh()
-
-        return () => {
-            if (locomotiveScroll) {
-                ScrollTrigger.removeEventListener('refresh', lsUpdate)
-                locomotiveScroll.destroy()
-                locomotiveScroll = null
-            }
-        }
     }, [start])
 }

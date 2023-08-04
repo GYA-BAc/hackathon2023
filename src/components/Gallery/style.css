@@ -11,7 +11,7 @@
     margin: 0;
     font-family: sans-serif;
   }
-  
+
   .bumper {
     text-align: center;
     padding: 128px 16px;
@@ -19,6 +19,7 @@
   }
   
   .container {
+    padding-top: 0;
     position: relative;
     width: 100%;
     min-height: 100vh;
@@ -56,8 +57,30 @@
   .sample-card {
     position: relative;
     height: 70vh;
-    width: 100vw;
+    width: 70vw;
     background-color: #111f30;
     margin-right: 75px;
     flex-shrink: 0;
+
+  }
+
+  .title {
+    font-size: 3vw;
+    font-weight: 500;
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 100px;
+    padding-left: 100px;
+
+    -webkit-text-stroke: 1px #dbd8d6;
+  }
+
+  .subtitle {
+    color: #dbd8d6;
+    font-size: 2vw;
+    font-weight: 300;
+    position: absolute;
+    bottom: 0;
+    padding-bottom: 60px;
+    padding-left: 120px;
   }
