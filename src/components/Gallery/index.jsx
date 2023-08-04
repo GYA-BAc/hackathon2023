@@ -32,7 +32,7 @@ export default function Gallery() {
   
 
   return (
-    <>
+    <div className="gallery-section">
       <h1 className="heading" style={{textAlign:"center",fontSize:"50px"}}>Meet The Team</h1>
       <section className="container" data-scroll-section>
         <div className="space-holder">
@@ -60,6 +60,6 @@ export default function Gallery() {
           </div>
         </div>
       </section>
-      </>
+      </div>
   )
 }

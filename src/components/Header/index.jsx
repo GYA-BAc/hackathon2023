@@ -19,9 +19,9 @@ export default function Header() {
 
     return <section className={"header-section"} data-scroll-section>
         <ul className="header-menu">
-            <li>Intro</li>
-            <li>About</li>
-            <li>Featured</li>
+            <li>"Lorem,</li>
+            <li>Ipsum,</li>
+            <li>Dolor"</li>
         </ul>
 
         <h1 id="header-text">Lorem Ipsum</h1>
