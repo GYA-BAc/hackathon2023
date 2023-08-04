@@ -61,7 +61,7 @@
     background-color: #111f30;
     margin-right: 75px;
     flex-shrink: 0;
-
+    border-radius: 15px;
   }
 
   .title {
