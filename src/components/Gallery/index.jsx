@@ -1,91 +1,57 @@
-import React, { useState } from "react"
+import React, { useRef, useState, useEffect } from "react"
 
 import "./style.css"
 
 
-const images = [
-    {
-        src: 
-            "/assets/Placeholder.jpg",
-        title: "Image 1",
-        subtitle1: "Lorem Ipsum1",
-        subtitle2: "Lorem Ipsum2"
-    },
-
-    {
-        src: 
-            "/assets/Placeholder.jpg",
-        title: "Image 2",
-        subtitle1: "Lorem Ipsum1",
-        subtitle2: "Lorem Ipsum2"
-    },
-
-    {
-        src: 
-            "/assets/Placeholder.jpg",
-        title: "Image 3",
-        subtitle1: "Lorem Ipsum1",
-        subtitle2: "Lorem Ipsum2"
-    },
-
-    {
-        src: 
-            "/assets/Placeholder.jpg",
-        title: "Image 4",
-        subtitle1: "Lorem Ipsum1",
-        subtitle2: "Lorem Ipsum2"
-    },
-]
-
-
-function GalleryItem({src, subtitle1, subtitle2, title, updateActiveImage, index}) {
-    return (
-        <div className="gallery-item-wrapper">
-
-            <div/>
-
-            <div className="gallery-item">
-                <div className="gallery-info">
-                    <h1 className="info-title">{title}</h1>
-                    <h6 className="info-subtitle1">{subtitle1}</h6>
-                    <p className="info-subtitle2">{subtitle2}</p>
-                </div>
-
-                <div 
-                    className="gallery-image"
-                     style={{backgroundImage: `url(${src})`}}
-                ></div>
-
-            <div/>
-
-            </div>
-        </div>
-    )
-}
-
 
 export default function Gallery() {
 
-    const [activeImage, setActiveImage] = useState(1)
+  useEffect (() => {
 
-    return (
-        <section className={"gallery-section"} data-scroll-section>
-            <div className="gallery">
+    const spaceHolder = document.querySelector('.space-holder');
+    const horizontal = document.querySelector('.horizontal');
 
-                <div className="gallery-counter">
-                    <span>{activeImage}</span>
-                    <span className="divider"/>
-                    <span>{images.length}</span>
-                </div>
+    console.log(spaceHolder)
+    console.log(horizontal)
+    
+    spaceHolder.style.height = `${calcDynamicHeight(horizontal)}px`;
+    
+    function calcDynamicHeight(ref) {
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const objectWidth = ref.scrollWidth;
+      return objectWidth - vw + vh + 150; // 150 is the padding (in pixels) desired on the right side of the .cards container. This can be set to whatever your styles dictate
+    }
 
-                {images.map((image, index) => 
-                    <GalleryItem
-                        key={image.src+index}
-                        index={index}
-                        {...image}
-                        updateActiveImage={(index)=>setActiveImage(index+1)}
-                    />
-                )}
+    const sticky = document.querySelector('.sticky');
+
+    window.addEventListener('scroll', () => {
+      horizontal.style.transform = `translateX(-${sticky.offsetTop}px)`;
+    });
+
+    window.addEventListener('resize', () => {
+      spaceHolder.style.height = `${calcDynamicHeight(horizontal)}px`;
+    });
+  }, [])
+
+
+  return (
+    <>
+      <section class="container">
+        <div class="space-holder">
+          <div class="sticky">
+            <div class="horizontal">
+              <section role="feed" class="cards">
+                <article class="sample-card"></article>
+                <article class="sample-card"></article>
+                <article class="sample-card"></article>
+                <article class="sample-card"></article>
+                <article class="sample-card"></article>
+              </section>
             </div>
-        </section>
-)}
+          </div>
+        </div>
+      </section>
+    </>
+  )
+}
