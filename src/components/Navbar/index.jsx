@@ -7,14 +7,17 @@ import { Link } from "react-router-dom"
 
 export default function Navbar() {
     
+    // BUG!!! Doesn't work in production
+    const scrollToAbout = () => {
+        const about = document.querySelector(".about-section")
+        about.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }
 
-
-    const about = document.querySelector(".about-section")
-    const scrollToAbout = () => {about.scrollIntoView({ behavior: 'smooth', block: 'center' })}
-
-    const credits = document.querySelector(".gallery-section")
-    const scrollToCredits = () => {credits.scrollIntoView({ behavior: 'smooth', block: 'start' })}
-
+    const scrollToCredits = () => {
+        const credits = document.querySelector(".gallery-section")
+        credits.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+    
 
 
     return (

@@ -64,6 +64,28 @@
     border-radius: 15px;
   }
 
+  .picture-container {
+    text-align: center;
+  }
+
+  .picture {
+    /* Set rules to fill background */
+      border-radius: 10px;
+
+			max-height: 400px;
+      max-width: 400px;
+
+      /* Set up proportionate scaling */
+      width: auto;
+      height: auto;
+
+      object-fit: cover;
+
+      /* Set up positioning */
+      position: relative;
+      top: 10vh;
+  }
+
   .title {
     font-size: 3vw;
     font-weight: 500;

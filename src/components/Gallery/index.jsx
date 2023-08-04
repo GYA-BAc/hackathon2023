@@ -39,22 +39,39 @@ export default function Gallery() {
           <div className="sticky">
             <div className="horizontal">
               <section role="feed" className="cards">
+
                 <div className="sample-card">
+                  <div className="picture-container">
+                    <img className="picture" src="/assets/Placeholder.jpg"/>
+                  </div>
                   <p className="title">Alan Ji - role</p>
                   <p className="subtitle">add links here</p>
                 </div>
+
                 <div className="sample-card">
+                  <div className="picture-container">
+                    <img className="picture" src="/assets/Placeholder.jpg"/>
+                  </div>
                   <p className="title">Name 2 - role</p>
                   <p className="subtitle">add links here</p>
                 </div>
+
                 <div className="sample-card">
+                  <div className="picture-container">
+                    <img className="picture" src="/assets/Placeholder.jpg"/>
+                  </div>
                   <p className="title">Name 3 - role</p>
                   <p className="subtitle">add links here</p>
                 </div>
+
                 <div className="sample-card">
+                  <div className="picture-container">
+                    <img className="picture" src="/assets/Placeholder.jpg"/>
+                  </div>
                   <p className="title">Name 4 - role</p>
                   <p className="subtitle">add links here</p>
                 </div>
+
               </section>
             </div>
           </div>
