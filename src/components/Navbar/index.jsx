@@ -1,6 +1,7 @@
 import React, { useEffect } from "react"
 
 import "./style.css"
+import { Link } from "react-router-dom"
 
 
 
@@ -16,9 +17,11 @@ export default function Navbar() {
 
 
 
-    return <div className={"navbar-section"} data-scroll-section>
-    <button onClick={scrollToAbout} className="about-link">About</button>
-    <button onClick={scrollToCredits} className="credits-link">Credit</button>
-        <button onClick="" className="try-link">Try It!</button>
-    </div>
+    return (
+        <div className={"navbar-section"} data-scroll-section>
+            <button onClick={scrollToAbout} className="about-link" id="link">About</button>
+            <button onClick={scrollToCredits} className="credits-link" id="link">Credit</button>
+            <Link to="/demo" id="link">Try It!</Link>
+        </div>
+    )
 }
