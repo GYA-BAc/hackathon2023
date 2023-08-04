@@ -1,7 +1,8 @@
 .App {
   padding: 0 5svw;
 
-  background-color: #f5f0ec;
+  background-image: linear-gradient(#ebf2af, #a0ffe2, #384585);
+
 }
 
 section {

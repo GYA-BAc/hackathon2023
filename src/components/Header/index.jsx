@@ -19,12 +19,12 @@ export default function Header() {
 
     return <section className={"header-section"} data-scroll-section>
         <ul className="header-menu">
-            <li>"Lorem,</li>
-            <li>Ipsum,</li>
-            <li>Dolor"</li>
+            <li>Eco-Friendly</li>
+            <li>Empowering</li>
+            <li>Engaging</li>
         </ul>
 
-        <h1 id="header-text">Lorem Ipsum</h1>
+        <h1 id="header-text">Eco Trace</h1>
 
         
 

@@ -16,8 +16,6 @@ export default function Navbar() {
         const credits = document.querySelector(".gallery-section")
         credits.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
-    
-
 
     return (
         <div className={"navbar-section"} data-scroll-section>

@@ -58,7 +58,7 @@
     position: relative;
     height: 70vh;
     width: 70vw;
-    background-color: #111f30;
+    background-color: #2225;
     margin-right: 75px;
     flex-shrink: 0;
     border-radius: 15px;
@@ -93,12 +93,12 @@
     bottom: 0;
     padding-bottom: 100px;
     padding-left: 100px;
+    color: white;
 
-    -webkit-text-stroke: 1px #dbd8d6;
   }
 
   .subtitle {
-    color: #dbd8d6;
+    color: white;
     font-size: 2vw;
     font-weight: 300;
     position: absolute;

@@ -23,8 +23,8 @@
 .container .box {
     border-radius: 10px;
     
-    color: #929796;
-    background: #333e; /*rgba*/
+    color: white;
+    background: #2225; /*rgba*/
     padding: 20px;
     display: grid;
     font-size: 20px;

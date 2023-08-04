@@ -1,9 +1,9 @@
 .footer-section {
-    text-align: center;
+    text-align: left;
     padding-bottom: 200px;
 }
 
 .footer-content {
-    font-size: 12vw;
+    font-size: 3vw;
     text-transform: uppercase;
 }
