@@ -69,9 +69,9 @@ export default function UploadPhoto() {
         // predict can take in an image, video or canvas html element
         let prediction = await model.predict(webcam.canvas);
         const predictionBox = document.querySelector('.prediction');
-        predictionBox.innerHTML = "Ways to recycle " + prediction.sort((i, j)=>{
+        predictionBox.innerHTML = prediction.sort((i, j)=>{
             return (i.probability >= j.probability) ? i.className : j.className
-        })[2].className + " waste:"
+        })[2].className
         }
 
             

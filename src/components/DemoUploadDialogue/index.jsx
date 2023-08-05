@@ -1,9 +1,9 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { Configuration, OpenAIApi } from "openai"
 
 import "./style.css"
 
-const API_KEY = "GETYOUROWNKEY"
+const API_KEY = "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"
 
 
 export default function UploadDialogue() {
@@ -17,27 +17,36 @@ export default function UploadDialogue() {
 
     
     const openai = new OpenAIApi(configuration);
-    const [prompt, setPrompt] = useState("");
-    const [apiResponse, setApiResponse] = useState("");
     const [loading, setLoading] = useState(false);
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (prompt) => {
+        
       setLoading(true);
       try {
-        const result = await openai.createCompletion({
-          model: "text-davinci-003",
-          prompt: prompt,
-          temperature: 0.3,
-          max_tokens: 500,
+        //console.log("Prompt: " + prompt)
+        const result = await openai.createChatCompletion({
+          model: "gpt-3.5-turbo",
+        //   model: "text-davinci-003",
+          messages: [{ role: "user", content: prompt }],
+        //   prompt: prompt,
+        //   temperature: 0.3,
+        //   max_tokens: 500,
         });
         //console.log("response", result.data.choices[0].text);
-        setApiResponse(result.data.choices[0].text);
+        // setApiResponse(result.data.choices[0].text);
+        //console.log("result: "+ result.data.choices[0].message.content)
+        return result.data.choices[0].message.content  
       } catch (e) {
-        //console.log(e);
-        setApiResponse("Something is going wrong, Please try again.");
+        console.log(e);
+        return "Something went wrong, try again..."
       }
       setLoading(false);
+
     };
+
+    // useEffect(() => {
+    //     handleSubmit("hi")
+    // }, [])
 
     async function getInfo() {
         const dialogueBox = document.querySelector('.upload-dialogue-container');
@@ -48,20 +57,24 @@ export default function UploadDialogue() {
         const suggestionBox = document.querySelector('.ai-suggestion')
         try {
         const category = predictionBox.innerHTML
+        
+        const p = "What are 3 ways to recycle " + category + " waste?"
+        const result = await handleSubmit(p)
 
-        setPrompt("What are 3 ways to recycle" + category + "waste?")
-        await handleSubmit()
-        while (loading) {
-            //console.log("loading")
-        }
+        // console.log(result)
+
+        // while (loading) {
+        //     console.log("loading")
+        // }
         //console.log(apiResponse)
-        suggestionBox.innerHTML = apiResponse
+        suggestionBox.innerHTML = result
 
         setShareable(true)
 
         } catch(e) {
             console.log(e)
             dialogueBox.setAttribute("hidden", "true")
+        } finally {
         }
     }
 
@@ -72,21 +85,22 @@ export default function UploadDialogue() {
         cleanup()
     }
 
-    function share() {
+    async function share() {
         const commentBox = document.querySelector(".comment")
         if (!shareable) {
             return
         }
-        const prompt = "Is the following message hateful and/or hurtful: \""
-            + commentBox.value + "\" Answer with \"Yes\" or \"No\""
-        setPrompt(prompt)
-        handleSubmit()
-        while (loading) {
-            //console.log("loading")
+
+        if (commentBox.value == "") {
+            return
         }
-        console.log(prompt)
-        console.log(apiResponse)
-        if (apiResponse.slice(0, 2) !== "No") {
+
+        const p = "Is the following message hateful and/or hurtful: \""
+            + commentBox.value + "\" Answer with \"Yes\" or \"No\""
+        const result = await handleSubmit(p)
+
+        // console.log(apiResponse)
+        if (result.slice(0, 3) === "Yes") {
             console.log("bad")
             cancel()
             return
