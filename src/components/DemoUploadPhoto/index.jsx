@@ -1,68 +1,84 @@
-import React from "react";
-//import "./setup2"
-import * as tf from '@tensorflow/tfjs';
+import React, { useState } from "react";
 import * as tmImage from '@teachablemachine/image';
+import UploadDialogue from "../DemoUploadDialogue";
 
 import "./style.css"
 
 
 export default function UploadPhoto() {
 
-
-    // More API functions here:
-    // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
-
-    // the link to your model provided by Teachable Machine export panel
     const URL = "https://teachablemachine.withgoogle.com/models/fVe21QzxG/";
-
-    let model, webcam, labelContainer, maxPredictions;
+    let model, maxPredictions;
+    let webcam
 
     // Load the image model and setup the webcam
     async function init() {
+        // show dialogue box
+        const dialogueBox = document.querySelector('.upload-dialogue-container');
+        if (dialogueBox.getAttribute("hidden") === null) return
+        dialogueBox.removeAttribute("hidden")
+        
+        const webcamContainer = document.getElementById("webcam-container")
+        webcamContainer.removeAttribute("freeze")
+
+        const predictionBox = document.querySelector('.prediction');
+        predictionBox.innerHTML = "Looks like: "
+
+        const suggestionBox = document.querySelector('.ai-suggestion')
+        suggestionBox.innerHTML = ""
+
+        const commentBox = document.querySelector(".comment")
+        commentBox.value = ""
+
         const modelURL = URL + "model.json";
         const metadataURL = URL + "metadata.json";
-
-        // load the model and metadata
-        // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
-        // or files from your local hard drive
-        // Note: the pose library adds "tmImage" object to your window (window.tmImage)
         model = await tmImage.load(modelURL, metadataURL);
         maxPredictions = model.getTotalClasses();
 
-        // Convenience function to setup a webcam
-        const flip = true; // whether to flip the webcam
-        webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
-        await webcam.setup(); // request access to the webcam
-        await webcam.play();
-        window.requestAnimationFrame(loop);
-                
-        // append elements to the DOM
-        document.getElementById("webcam-container").appendChild(webcam.canvas);
-        labelContainer = document.getElementById("label-container");
-        for (let i = 0; i < maxPredictions; i++) { // and class labels
-            labelContainer.appendChild(document.createElement("div"));
+
+        try {
+            const flip = true; // whether to flip the webcam
+            webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
+            await webcam.setup(); // request access to the webcam
+            await webcam.play();
+            window.requestAnimationFrame(loop);
+            // append elements to the DOM
+            document.getElementById("webcam-container").appendChild(webcam.canvas);
+        } catch(e){
+            console.log(e)
         }
     }
-            
+
     async function loop() {
+        const dialogueBox = document.querySelector('.upload-dialogue-container');
+        const webcamContainer = document.getElementById("webcam-container")
+        if (dialogueBox.getAttribute("hidden") !== null) {
+            await webcam.stop()
+            return
+        }
+        if (webcamContainer.getAttribute("freeze") !== null) {
+            await webcam.stop()
+            return
+        }
         webcam.update(); // update the webcam frame
         await predict();
         window.requestAnimationFrame(loop);
     }
-            
-    // run the webcam image through the image model
+
     async function predict() {
         // predict can take in an image, video or canvas html element
-        const prediction = await model.predict(webcam.canvas);
-        for (let i = 0; i < maxPredictions; i++) {
-            const classPrediction =
-                prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-            labelContainer.childNodes[i].innerHTML = classPrediction;
+        let prediction = await model.predict(webcam.canvas);
+        const predictionBox = document.querySelector('.prediction');
+        predictionBox.innerHTML = "Ways to recycle " + prediction.sort((i, j)=>{
+            return (i.probability >= j.probability) ? i.className : j.className
+        })[2].className + " waste:"
         }
-    }
+
+            
 
     return (
         <>
+            <UploadDialogue/>
             <img className="upload-button" onClick={init} src="/favicon.ico"/>
         </>
     )

@@ -10,6 +10,7 @@
     "gsap": "^3.12.2",
     "intersection-observer": "^0.12.2",
     "locomotive-scroll": "^4.1.4",
+    "openai": "^3.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.2",

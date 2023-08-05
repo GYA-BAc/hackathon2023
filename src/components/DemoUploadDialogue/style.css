@@ -1,6 +1,6 @@
 .upload-dialogue-container {
     position: fixed;
-    background-color: #2229;
+    background-color: #2225;
     width: 75%;
     height: 80%;
     top: 10px;
@@ -9,11 +9,88 @@
     border-radius: 15px;
 
     display: flex;
-    justify-content: center;
-
-
+    flex-direction: column;
+    justify-content: left;
 }
-
 .upload-dialogue-container[hidden] {
     opacity: 0;
+}
+
+
+/**/
+
+
+.options {
+    position: absolute;
+    height: 20%;
+    width: 100%;
+    bottom: 15px;
+
+    display: flex;
+    justify-content: space-around;
+
+    background-color: #2225;
+}
+
+.display {
+    position: absolute;
+    top: 20px;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+
+}
+.display * {
+    margin-left: 10px;
+}
+
+.get-data{
+    display: flex;
+    flex-direction: column;
+}
+.get-data * {
+    margin-bottom: 30px;
+}
+
+#webcam-container {
+    width: 200px;
+    height: 200px;
+}
+#webcam-container * {
+    border-radius: 15px;
+}
+
+#manual-upload * {
+    margin-bottom: 5px;
+}
+
+/**/
+
+.info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.info * {
+
+    border-radius: 15px;
+    background-color: #2225;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    padding: 5px;
+}
+
+.prediction {
+    text-align: center;
+}
+
+.ai-suggestion {
+    height: 60%;
+    overflow-y:auto;
+}
+
+.comment {
+    height: 40%;
 }
