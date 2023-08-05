@@ -1,5 +1,7 @@
 # An Eco-Centric Social Media Platform
 
+## First Place Winner
+
 ### Created in 2 days during CodeCrew's 9th annual Hackathon (2023)
  - https://www.eventbrite.com/e/codecrews-9th-annual-hackathon-tickets-642392582507
 
