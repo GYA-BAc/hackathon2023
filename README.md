@@ -8,7 +8,9 @@
 
 
 ## Social Media
-![image](https://github.com/GYA-BAc/hackathon2023/assets/97851399/24f30ad8-abf2-4af5-998b-adb31dd3903a)
+![image](https://github.com/GYA-BAc/hackathon2023/assets/97851399/2bc0370e-2fea-49e3-8d5a-b73e2046a5d9)
+![image](https://github.com/GYA-BAc/hackathon2023/assets/97851399/f61eee86-6548-4a88-b7d5-17bd369687f4)
+
 
 ## contributors
 ![image](https://user-images.githubusercontent.com/97851399/212521271-3b941acb-18a6-4361-870a-02d833672a78.png)
