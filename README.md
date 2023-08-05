@@ -13,4 +13,17 @@
 
 
 ## contributors
-![image](https://user-images.githubusercontent.com/97851399/212521271-3b941acb-18a6-4361-870a-02d833672a78.png)
+Alan - Lead Developer
+![image](https://github.com/GYA-BAc/hackathon2023/assets/97851399/4c1273af-2691-4072-97f2-b0b0e78321ac)
+
+Kennedi - Team Lead/AI-Specialist
+![image](https://github.com/GYA-BAc/hackathon2023/assets/97851399/656c2f2d-5cfd-430e-aa1b-781713c6638c)
+
+Naomi - Lead Artist/Designer
+![image](https://github.com/GYA-BAc/hackathon2023/assets/97851399/8251fd0f-00c2-44d2-9d49-12120701b5df)
+
+Kennedy - Designer/AI-Specialist
+![image](https://github.com/GYA-BAc/hackathon2023/assets/97851399/d95b23e4-d60a-4a03-8a26-2efead4f719a)
+
+
+
