@@ -65,9 +65,10 @@
     grid-column: span 2;
     grid-row: span 3;
 
-    background-image: url("~/public/assets/Placeholder.jpg");
+    background-image: url("~/public/assets/logo.png");
     background-size: cover;
     background-position: 50% 50%;
+    
 }
 
 .container .box:nth-child(2) {

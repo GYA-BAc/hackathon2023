@@ -42,34 +42,34 @@ export default function Gallery() {
 
                 <div className="sample-card">
                   <div className="picture-container">
-                    <img className="picture" src="/assets/Placeholder.jpg"/>
+                    <img className="picture" src="/assets/AL.png"/>
                   </div>
-                  <p className="title">Alan Ji - role</p>
+                  <p className="title">Alan Ji - Lead Developer</p>
                   <p className="subtitle">add links here</p>
                 </div>
 
                 <div className="sample-card">
                   <div className="picture-container">
-                    <img className="picture" src="/assets/Placeholder.jpg"/>
+                    <img className="picture" src="/assets/KN1.jpg"/>
                   </div>
-                  <p className="title">Name 2 - role</p>
-                  <p className="subtitle">add links here</p>
+                  <p className="title">Kennedi Stewart - Team Lead</p>
+                  <p className="subtitle">Kvmarie12@gmail.com</p>
                 </div>
 
                 <div className="sample-card">
                   <div className="picture-container">
-                    <img className="picture" src="/assets/Placeholder.jpg"/>
+                    <img className="picture" src="/assets/KN2.jpeg"/>
                   </div>
-                  <p className="title">Name 3 - role</p>
-                  <p className="subtitle">add links here</p>
+                  <p className="title">Kennedy Jefferson - Artist/AI-trainer</p>
+                  <p className="subtitle">kennedysjefferson@outlook.com</p>
                 </div>
 
                 <div className="sample-card">
                   <div className="picture-container">
-                    <img className="picture" src="/assets/Placeholder.jpg"/>
+                    <img className="picture" src="/assets/NM.jpeg"/>
                   </div>
-                  <p className="title">Name 4 - role</p>
-                  <p className="subtitle">add links here</p>
+                  <p className="title">Naomi - Lead Artist/Designer</p>
+                  <p className="subtitle">leverettenaomi@gmail.com</p>
                 </div>
 
               </section>

@@ -3,7 +3,7 @@ import { Configuration, OpenAIApi } from "openai"
 
 import "./style.css"
 
-const API_KEY = "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"
+const API_KEY = "GETYOUROWNKEY"
 
 
 export default function UploadDialogue() {
@@ -17,11 +17,9 @@ export default function UploadDialogue() {
 
     
     const openai = new OpenAIApi(configuration);
-    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (prompt) => {
         
-      setLoading(true);
       try {
         //console.log("Prompt: " + prompt)
         const result = await openai.createChatCompletion({
@@ -40,7 +38,6 @@ export default function UploadDialogue() {
         console.log(e);
         return "Something went wrong, try again..."
       }
-      setLoading(false);
 
     };
 
@@ -58,7 +55,7 @@ export default function UploadDialogue() {
         try {
         const category = predictionBox.innerHTML
         
-        const p = "What are 3 ways to recycle " + category + " waste?"
+        const p = "What is 1 way to recycle " + category + " waste?"
         const result = await handleSubmit(p)
 
         // console.log(result)
@@ -87,6 +84,8 @@ export default function UploadDialogue() {
 
     async function share() {
         const commentBox = document.querySelector(".comment")
+        const errorBox = document.querySelector(".error-panel")
+        
         if (!shareable) {
             return
         }
@@ -95,13 +94,15 @@ export default function UploadDialogue() {
             return
         }
 
-        const p = "Is the following message hateful and/or hurtful: \""
+        const p = "Is the following message hateful, hurtful, or misleading? \""
             + commentBox.value + "\" Answer with \"Yes\" or \"No\""
         const result = await handleSubmit(p)
 
         // console.log(apiResponse)
+        console.log(result)
         if (result.slice(0, 3) === "Yes") {
-            console.log("bad")
+            errorBox.removeAttribute("hidden")
+            errorBox.innerHTML = "Sorry, that is not an appropriate comment"
             cancel()
             return
         }
@@ -125,7 +126,7 @@ export default function UploadDialogue() {
                     <div id="manual-upload">
                         {/*Problem: form is still accessible while hidden*/}
                         <input type="file" id="myFile" name="filename"/>
-                        <input type="submit" onClick={getInfo}/>
+                        <button type="submit" onClick={getInfo}>Submit Photo</button>
                     </div>
                     <div className="spacer"></div>
                 </div>
@@ -140,8 +141,8 @@ export default function UploadDialogue() {
 
 
             <div className="options">
-                <img className="share" onClick={share} src="/favicon.ico"/>
-                <img className="cancel" onClick={cancel} src="/favicon.ico"/>
+                <img className="share" onClick={share} src="/assets/share.png"/>
+                <img className="cancel" onClick={cancel} src="/assets/cancel.png"/>
             </div>
         </div>
     )

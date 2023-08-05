@@ -1,3 +1,8 @@
-/* .upload-button {
-    
-} */
+.upload-button {
+    transition: 1s;    
+    border-radius: 10px;
+}
+
+.upload-button:hover {
+    background-color: #aaae;
+}

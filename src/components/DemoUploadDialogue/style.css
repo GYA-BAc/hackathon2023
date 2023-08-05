@@ -11,6 +11,8 @@
     display: flex;
     flex-direction: column;
     justify-content: left;
+
+    color: white
 }
 .upload-dialogue-container[hidden] {
     opacity: 0;
@@ -33,13 +35,14 @@
 }
 
 .display {
-    position: absolute;
+    position: inherit;
     top: 20px;
 
     width: 100%;
 
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
 
 }
 .display * {
@@ -73,10 +76,12 @@
 .info * {
 
     border-radius: 15px;
-    background-color: #2225;
+    background-color: #222d;
     margin-right: 20px;
     margin-bottom: 10px;
     padding: 5px;
+    max-width: 50%;
+
 }
 
 .prediction {
@@ -91,4 +96,16 @@
 
 .comment {
     height: 40%;
+}
+
+img {
+    transition: 1s;
+    border-radius: 10px;
+}
+img:hover {
+    background-color: #aaae;
+}
+
+textarea {
+    color: white
 }

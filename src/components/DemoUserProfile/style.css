@@ -1,0 +1,10 @@
+.profile-container {
+    background-color: #2225;
+    margin: 10px;
+    border-radius: 15px;
+
+}
+
+.user-photo {
+    border-radius: 100%;
+}

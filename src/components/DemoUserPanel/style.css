@@ -21,4 +21,25 @@
     left: 10px;
 
     border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+}
+.side-panel-container * {
+    padding: 5%;
+}
+
+img {
+    max-height: 100px;
+    max-width: 100px;
+}
+
+.error-panel {
+    background-color: #f005;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+[hidden] {
+    opacity: 0;
 }

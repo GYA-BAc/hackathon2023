@@ -13,6 +13,7 @@ export default function UploadPhoto() {
 
     // Load the image model and setup the webcam
     async function init() {
+        
         // show dialogue box
         const dialogueBox = document.querySelector('.upload-dialogue-container');
         if (dialogueBox.getAttribute("hidden") === null) return
@@ -29,6 +30,10 @@ export default function UploadPhoto() {
 
         const commentBox = document.querySelector(".comment")
         commentBox.value = ""
+
+        const errorBox = document.querySelector(".error-panel")
+        errorBox.setAttribute("hidden", "true")
+        errorBox.innerHTML = ""
 
         const modelURL = URL + "model.json";
         const metadataURL = URL + "metadata.json";
@@ -69,9 +74,21 @@ export default function UploadPhoto() {
         // predict can take in an image, video or canvas html element
         let prediction = await model.predict(webcam.canvas);
         const predictionBox = document.querySelector('.prediction');
-        predictionBox.innerHTML = prediction.sort((i, j)=>{
-            return (i.probability >= j.probability) ? i.className : j.className
-        })[2].className
+        //console.log(prediction)
+
+        let highestPrediction = 0
+        let currentProbability = 0
+
+        for (let i=0; i < maxPredictions; i++) {
+            if (prediction[i].probability > currentProbability) {
+                highestPrediction = i
+                currentProbability = prediction[i].probability
+            }
+        }
+
+        // console.log(prediction[highestPrediction].className)
+        
+        predictionBox.innerHTML = prediction[highestPrediction].className
         }
 
             
@@ -79,7 +96,7 @@ export default function UploadPhoto() {
     return (
         <>
             <UploadDialogue/>
-            <img className="upload-button" onClick={init} src="/favicon.ico"/>
+            <img className="upload-button" onClick={init} src="/assets/camera.png"/>
         </>
     )
 }
